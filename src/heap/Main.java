@@ -8,7 +8,8 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
+		long millis = System.currentTimeMillis();
+        System.out.println(millis);
 		int N=Integer.parseInt(br.readLine());
 		int[] arr=new int[N+1];
 		arr[0]=0;
@@ -33,6 +34,9 @@ public class Main {
 		
 		bw.flush();
 		bw.close();
+		long millisAfter = System.currentTimeMillis();
+        System.out.println(millisAfter);
+        System.out.println(millisAfter-millis);
 	}	
 }
 
