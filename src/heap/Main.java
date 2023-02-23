@@ -6,17 +6,16 @@ import java.util.PriorityQueue;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int[] arr=new int[10000000];
+		
+		for(int i=0; i<arr.length; i++) {
+			arr[i]=(int)(Math.random()*10000000+1);
+		}
+		
 		long millis = System.currentTimeMillis();
         System.out.println(millis);
-		int N=Integer.parseInt(br.readLine());
-		int[] arr=new int[N+1];
-		arr[0]=0;
-						
-		for(int i=1;i<=N;i++) {
-			arr[i]=Integer.parseInt(br.readLine());
-		}
 		
 		PriorityQueue<Integer> heap = new PriorityQueue<Integer>();
 		
@@ -32,11 +31,10 @@ public class Main {
 			bw.write(arr[i]+"\n");
 		}
 		
-		bw.flush();
-		bw.close();
 		long millisAfter = System.currentTimeMillis();
         System.out.println(millisAfter);
         System.out.println(millisAfter-millis);
+		
 	}	
 }
 
