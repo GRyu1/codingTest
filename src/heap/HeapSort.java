@@ -26,7 +26,7 @@ public class HeapSort {
     }
 
     private static int[] heapSort(int[] arr) {
-        int n = arr.length;
+        int n = arr.length; // ==maxParentIdx
 
         // maxHeap을 구성
         // n/2-1 : 부모노드의 인덱스를 기준으로 왼쪽(i*2+1) 오른쪽(i*2+2)
