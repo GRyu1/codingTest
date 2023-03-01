@@ -13,6 +13,7 @@ public class Main9663NeedReview {
 		arr = new int[N];
 		
 		nQueen(0);
+		
 		System.out.println(count);
 	}
 
