@@ -1,4 +1,4 @@
-package dfs;
+package search.dfs;
 //https://codingnojam.tistory.com/44
 // by recrusion
 

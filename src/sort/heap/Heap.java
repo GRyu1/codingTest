@@ -1,4 +1,4 @@
-package heap;
+package sort.heap;
 
 import java.util.Comparator;
 

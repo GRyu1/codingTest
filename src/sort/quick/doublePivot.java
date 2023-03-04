@@ -1,4 +1,4 @@
-package quickSort;
+package sort.quick;
 
 public class doublePivot {
 	static int[] arr;
