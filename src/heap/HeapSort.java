@@ -8,9 +8,9 @@ public class HeapSort {
 
     public static void main(String[] args) throws IOException {
     	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] arr = new int[100000000];
+        int[] arr = new int[100];
         for (int i = 0; i <arr.length; i++) {
-            arr[i] = (int)(Math.random()*100000000+1);
+            arr[i] = (int)(Math.random()*100+1);
         }
         
         long millis = System.currentTimeMillis();
@@ -23,6 +23,8 @@ public class HeapSort {
         long millisAfter = System.currentTimeMillis();
         System.out.println(millisAfter);
         System.out.println(millisAfter-millis);
+        
+        bw.close();
     }
 
     private static int[] heapSort(int[] arr) {
