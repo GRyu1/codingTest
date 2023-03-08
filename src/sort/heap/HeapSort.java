@@ -57,7 +57,7 @@ public class HeapSort {
         if (rightChild < n && arr[parent] < arr[rightChild])
             parent = rightChild;
 
-        // 부모노드 < 자식노드
+        // 부모노드(i) != 자식노드(parent : 위의 if문을 통해 교체당함)
         if (i != parent) {
             swap(arr, parent, i);
             heapify(arr, n, parent);
