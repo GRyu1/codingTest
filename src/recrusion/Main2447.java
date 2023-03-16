@@ -21,6 +21,7 @@ public class Main2447 {
 		}
 		
 		removeAndPrint(0, 0, N , position);
+		
 		for(int i=0;i<N;i++) {
 			for(int j=0;j<N;j++) {
 				bw.write(position[i][j]==0?"*":" ");
@@ -32,6 +33,7 @@ public class Main2447 {
 	
 	// 스타트 포인트(0 ,0 ) + 크기입력(n) = 삭제
 	private static void removeAndPrint (int startX, int startY ,int size, int[][] position) {
+		
 		int p=size/3;
 		
 		if(p!=0) {
