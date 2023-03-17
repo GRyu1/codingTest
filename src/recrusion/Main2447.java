@@ -51,6 +51,5 @@ public class Main2447 {
 		removeAndPrint(startX+p, startY+2*p, p, position);
 		removeAndPrint(startX+2*p, startY+2*p, p, position);
 		}
-		
 	}
 }
