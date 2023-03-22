@@ -15,7 +15,8 @@ public class Main1541 {
 
         while(st.hasMoreTokens()) {
             int sum = 0;
-            st1 = new StringTokenizer(st.nextToken(), " ");
+            String str2 = st.nextToken();
+            st1 = new StringTokenizer(str2 , " ");
             while(st1.hasMoreTokens()){
                 sum+=Integer.parseInt(st1.nextToken());
             }
@@ -24,7 +25,7 @@ public class Main1541 {
         int a=0;
         int total=subtotal.get(0);
 
-        for(int i=1; i< subtotal.size()-1; i++){
+        for(int i=1; i<subtotal.size(); i++){
             total-=subtotal.get(i);
         }
         System.out.println(total);
