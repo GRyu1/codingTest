@@ -35,7 +35,7 @@ public class Main1260 {
         }
         dfs(start);
         System.out.println(sb);
-        bfs(start);
+        //bfs(start);
     }
 
     private static void dfs(int start) {
