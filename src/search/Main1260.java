@@ -12,6 +12,7 @@ public class Main1260 {
     static int start;
     static StringBuilder sb;
     static boolean[] checker;
+    
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine() , " ");
@@ -33,22 +34,43 @@ public class Main1260 {
             graph.get(X).add(Y);
             graph.get(Y).add(X);
         }
+        
+        for(ArrayList al : graph) {
+        	al.sort(null);
+        }
+        
         dfs(start);
         System.out.println(sb);
-        //bfs(start);
+        bfs(start);
     }
 
     private static void dfs(int start) {
         checker[start]=true;
-        sb.append(start);
+        sb.append(start + " ");
+        
         for(int idx : graph.get(start)){
             if(!checker[idx]) dfs(idx);
         }
     }
 
-    private static void bfs(int start) {
+    private static void bfs (int start) {
+    	int p = start;
+    	sb = new StringBuilder();
         checker = new boolean[N+1];
-        sb = new StringBuilder();
+        checker[p] = true;
+        Queue<Integer> q = new LinkedList<>();
+        q.offer(p);
+        
+        while(!q.isEmpty()) {
+        	p=q.poll();
+        	sb.append(p + " ");
+	        for(int idx : graph.get(p)) {
+	        	if(!checker[idx]) {
+	        		q.offer(idx);
+	        		checker[idx]=true;
+	        	}
+	        }   
+        }
         System.out.println(sb);
     }
 
