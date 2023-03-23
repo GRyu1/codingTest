@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Beakjoon.iml" filepath="$PROJECT_DIR$/Beakjoon.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/codingTest.iml" filepath="$PROJECT_DIR$/codingTest.iml" />
+>>>>>>> origin/master
     </modules>
   </component>
 </project>
