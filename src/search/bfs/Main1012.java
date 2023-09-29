@@ -41,38 +41,38 @@ public class Main1012 {
     }
 
     private static void bfs(int y ,int x) {
-        Queue<Point> q = new LinkedList<>();
+        Queue<Point7576> q = new LinkedList<>();
         canVisit[y][x] = false;
-        Point p = new Point(x,y);
+        Point7576 p = new Point7576(x,y);
         q.offer(p);
 
         while(q.size()!=0){
             p = q.poll();
             if(canVisit[p.y+1][p.x]){
-                q.offer(new Point(p.x,p.y+1));
+                q.offer(new Point7576(p.x,p.y+1));
                 canVisit[p.y+1][p.x]=false;
             }
             if(canVisit[p.y][p.x+1]){
-                q.offer(new Point(p.x+1,p.y));
+                q.offer(new Point7576(p.x+1,p.y));
                 canVisit[p.y][p.x+1]=false;
             }
             if(canVisit[p.y-1][p.x]){
-                q.offer(new Point(p.x,p.y-1));
+                q.offer(new Point7576(p.x,p.y-1));
                 canVisit[p.y-1][p.x]=false;
             }
             if(canVisit[p.y][p.x-1]){
-                q.offer(new Point(p.x-1,p.y));
+                q.offer(new Point7576(p.x-1,p.y));
                 canVisit[p.y][p.x-1]=false;
             }
         }
     }
 }
 
-class Point{
+class Point7576{
     int x;
     int y;
 
-    public Point(int x, int y) {
+    public Point7576(int x, int y) {
         this.x = x;
         this.y = y;
     }

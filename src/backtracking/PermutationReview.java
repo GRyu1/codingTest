@@ -35,9 +35,9 @@ public class PermutationReview {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		int R = sc.nextInt();
-		
+		System.out.println("한글 콘솔 테스트");
 		arr = new int[R];
-		
+
 		permutation(N, R, 0);
 		System.out.println(sb);
 	}
@@ -50,7 +50,7 @@ public class PermutationReview {
 			sb.append("\n");
 			return;
 		}
-		
+
 		for(int i=1; i<=n ; i++) {
 			if(!used[i]) {
 				arr[depth]=i;

@@ -10,12 +10,13 @@ public class DfsRecrusion {
 	};
 	
 	public static void main(String[] args) {
+
 		dfs(1);
 	}
 	
 	private static void dfs (int nodeIdx) {
 		visited[nodeIdx] = true;
-		System.out.println(nodeIdx + "->");
+		System.out.println(nodeIdx + "->" + "한글");
 		for(int node : graph[nodeIdx]) {
 			if(!visited[node])
 			dfs(node);
