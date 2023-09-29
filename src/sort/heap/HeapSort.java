@@ -8,7 +8,7 @@ public class HeapSort {
 
     public static void main(String[] args) throws IOException {
     	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] arr = new int[10000000];
+        int[] arr = new int[100000000];
         for (int i = 0; i <arr.length; i++) {
             arr[i] = (int)(Math.random()*10000000+1);
         }
