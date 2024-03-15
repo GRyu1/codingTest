@@ -3,65 +3,41 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 )
 
-// 전 단계 (대각-1 or 대각 -2) + 점수값
-
-var (
-	r      int
-	n      int
-	reader *bufio.Reader
-	writer *bufio.Writer
-)
-
 func main() {
-	Q9465()
-}
-
-func Q9465() {
-	reader = bufio.NewReader(os.Stdin)
-	writer = bufio.NewWriter(os.Stdout)
+	reader := bufio.NewReader(os.Stdin)
+	writer := bufio.NewWriter(os.Stdout)
 	defer writer.Flush()
-
-	fmt.Fscan(reader, &n)
-	for i := 0; i < n; i++ {
-		fmt.Fscan(reader, &r)
-		arr := make([][]int, 2)
-		dp := make([][]int, 2)
-		for j := 0; j < 2; j++ {
-			arr[j] = make([]int, r)
-			dp[j] = make([]int, r+1)
-			for k := 0; k < r; k++ {
-				fmt.Fscan(reader, &arr[j][k])
-			}
-		}
-		dp[0][0] = 0
-		dp[1][0] = 0
-
-		dp[0][1] = arr[0][0]
-		dp[1][1] = arr[1][0]
-
-		for j := 2; j < r+1; j++ {
-			if dp[0][j-2] > dp[0][j-1] {
-				dp[1][j] = dp[0][j-2] + arr[1][j-1]
-			} else {
-				dp[1][j] = dp[0][j-1] + arr[1][j-1]
-			}
-
-			if dp[1][j-2] > dp[1][j-1] {
-				dp[0][j] = dp[1][j-2] + arr[0][j-1]
-			} else {
-				dp[0][j] = dp[1][j-1] + arr[0][j-1]
-			}
-		}
-		if dp[0][r] > dp[1][r] {
-			fmt.Fprint(writer, dp[0][r])
-			fmt.Fprint(writer, "\n")
-		} else {
-			fmt.Fprint(writer, dp[1][r])
-			fmt.Fprint(writer, "\n")
-		}
+	var N int
+	fmt.Fscan(reader, &N)
+	dp := make([][]int, N+1)
+	processions := make([][]int, N+1)
+	for i := 0; i < N+1; i++ {
+		dp[i] = make([]int, N+1)
+		processions[i] = make([]int, 2)
+	}
+	for i := 1; i <= N; i++ {
+		fmt.Fscan(reader, &processions[i][0])
+		fmt.Fscan(reader, &processions[i][1])
 	}
 
+	for i := 1; i < N; i++ {
+		dp[i][i+1] = processions[i][0] * processions[i+1][0] * processions[i+1][1]
+	}
+
+	for gap := 2; gap < N; gap++ {
+		for start := 1; start+gap <= N; start++ {
+			end := start + gap
+			dp[start][end] = math.MaxInt64
+			for mid := start; mid < end; mid++ {
+				if dp[start][end] > dp[start][mid]+dp[mid+1][end]+processions[start][0]*processions[mid][1]*processions[end][1] {
+					dp[start][end] = dp[start][mid] + dp[mid+1][end] + processions[start][0]*processions[mid][1]*processions[end][1]
+				}
+			}
+		}
+	}
+	fmt.Fprint(writer, dp[1][N])
 }
